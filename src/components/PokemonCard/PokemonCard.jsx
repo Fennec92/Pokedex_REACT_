@@ -28,9 +28,11 @@ const PokemonCard = ({ pokemon }) => {
     return (
         <div className="pokedex-item">
             <img src={pokemonImage} alt="" />
-            <h2>{name}</h2>
-            <p>Id: {pokemonId}</p>
-            <p>{selectedPokemonData.type}</p>
+            <div className="card-info">
+                <h2>{name}</h2>
+                <p>Id: {pokemonId}</p>
+                <p>{selectedPokemonData.type}</p>
+            </div>
         </div>
     );
 };

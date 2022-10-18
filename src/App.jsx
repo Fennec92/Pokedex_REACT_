@@ -26,13 +26,18 @@ const App = () => {
     }, []);
 
     return (
-        <div className="pokedex-container">
+        <>
             <h1>Pokedex</h1>
-            {pokemons.map((pokemon) => (
-                <PokemonCard key={pokemon.pokemonId} pokemon={{ ...pokemon }} />
-            ))}
+            <div className="pokedex-container">
+                {pokemons.map((pokemon) => (
+                    <PokemonCard
+                        key={pokemon.pokemonId}
+                        pokemon={{ ...pokemon }}
+                    />
+                ))}
+            </div>
             <button type="button">Load more</button>
-        </div>
+        </>
     );
 };
 

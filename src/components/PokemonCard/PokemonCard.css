@@ -1,0 +1,16 @@
+.pokedex-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 5px;
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+.pokedex-item {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
