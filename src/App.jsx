@@ -5,6 +5,7 @@ import "./App.css";
 const App = () => {
     const pokemonApi = "https://pokeapi.co/api/v2/pokemon/?limit=151";
     const [pokemons, setPokemons] = useState([]);
+    const [showMore, setShowMore] = useState(false);
 
     useEffect(() => {
         const fetchPokemonData = async () => {
@@ -25,18 +26,35 @@ const App = () => {
         fetchPokemonData(9);
     }, []);
 
+    const loadMorePokemon = () => {
+        setShowMore(true);
+    };
+
+    console.log("app rendered");
+
     return (
         <>
             <h1>Pokedex</h1>
             <div className="pokedex-container">
-                {pokemons.map((pokemon) => (
-                    <PokemonCard
-                        key={pokemon.pokemonId}
-                        pokemon={{ ...pokemon }}
-                    />
-                ))}
+                {pokemons.map((pokemon, i) => {
+                    if (i < 16 || showMore) {
+                        return (
+                            <PokemonCard
+                                key={pokemon.pokemonId}
+                                pokemon={{ ...pokemon }}
+                            />
+                        );
+                    }
+                    return null;
+                })}
             </div>
-            <button type="button">Load more</button>
+            <button
+                style={showMore ? { display: "none" } : null}
+                onClick={loadMorePokemon}
+                type="button"
+            >
+                Load more
+            </button>
         </>
     );
 };

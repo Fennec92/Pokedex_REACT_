@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SinglePokemonData from "../SinglePokemonData/SinglePokemonData";
 import "./PokemonCard.css";
 
 const PokemonCard = ({ pokemon }) => {
@@ -6,7 +7,10 @@ const PokemonCard = ({ pokemon }) => {
 
     const [selectedPokemonData, setSelectedPokemonData] = useState({
         type: "",
+        show: false,
     });
+
+    console.log("pokemoncard rendered");
 
     useEffect(() => {
         const getData = async () => {
@@ -25,15 +29,29 @@ const PokemonCard = ({ pokemon }) => {
         getData();
     }, []);
 
+    const toggleShow = () => {
+        setSelectedPokemonData((prev) => {
+            return {
+                ...prev,
+                show: !prev.show,
+            };
+        });
+    };
+
     return (
-        <div className="pokedex-item">
-            <img src={pokemonImage} alt="" />
-            <div className="card-info">
-                <h2>{name}</h2>
-                <p>Id: {pokemonId}</p>
-                <p>{selectedPokemonData.type}</p>
+        <>
+            <div onClick={toggleShow} className="pokedex-item" id={pokemonId}>
+                <img src={pokemonImage} alt="" />
+                <div className="card-info">
+                    <h2>{name}</h2>
+                    <p>Id: {pokemonId}</p>
+                    <p>{selectedPokemonData.type}</p>
+                </div>
             </div>
-        </div>
+            <SinglePokemonData
+                selectedPokemonData={{ ...selectedPokemonData }}
+            />
+        </>
     );
 };
 
