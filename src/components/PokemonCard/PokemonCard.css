@@ -8,7 +8,11 @@
 }
 
 .pokedex-item {
-    background-color: grey;
+    background: linear-gradient(
+        to right,
+        hsla(207, 70%, 52%, 0.5),
+        hsla(192, 25%, 51%, 0.5)
+    );
     display: flex;
     flex-direction: column;
     justify-content: center;

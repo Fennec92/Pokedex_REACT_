@@ -1,10 +1,14 @@
 body {
-    background-color: rgb(64, 62, 62);
+    background: linear-gradient(to right, #de6161, #2657eb);
     color: aliceblue;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+h1 {
+    font-size: 2rem;
 }
 
 .pokedex-container {
@@ -14,4 +18,14 @@ body {
 
 .pokedex-container::-webkit-scrollbar {
     display: none;
+}
+
+.load-button {
+    all: unset;
+    width: 200px;
+    height: 50px;
+    outline: 3px solid black;
+    font-size: 2rem;
+    margin-top: -15px;
+    margin-bottom: 25px;
 }

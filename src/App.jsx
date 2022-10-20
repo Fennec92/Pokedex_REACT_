@@ -52,6 +52,7 @@ const App = () => {
                 style={showMore ? { display: "none" } : null}
                 onClick={loadMorePokemon}
                 type="button"
+                className="load-button"
             >
                 Load more
             </button>
