@@ -2,4 +2,16 @@ body {
     background-color: rgb(64, 62, 62);
     color: aliceblue;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pokedex-container {
+    height: 90vh;
+    overflow: scroll;
+}
+
+.pokedex-container::-webkit-scrollbar {
+    display: none;
 }

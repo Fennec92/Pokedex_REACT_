@@ -49,7 +49,8 @@ const PokemonCard = ({ pokemon }) => {
                 </div>
             </div>
             <SinglePokemonData
-                selectedPokemonData={{ ...selectedPokemonData }}
+                selectedPokemonData={{ ...selectedPokemonData, ...pokemon }}
+                toggleShow={toggleShow}
             />
         </>
     );
